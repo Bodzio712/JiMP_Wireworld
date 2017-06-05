@@ -14,6 +14,7 @@ public class Wireworld {
             while (licznikj<j) {
                 if (obiekt[liczniki][licznikj]==2)
                     obiekt[liczniki][licznikj]=3;
+                licznikj++;
             }
             liczniki++;
             licznikj=0;
@@ -104,6 +105,7 @@ public class Wireworld {
         while (petla_test<14) {
             
             zeruj_ogon(plansza, wys, szer);
+            System.out.println ("Przeszłem ogon");
             //ile_sasiadow(plansza, wys, szer);
             //glowa_na_ogon(plansza, wys, szer);
             //dodaj_glowa(plansza, wys, szer);
@@ -111,6 +113,7 @@ public class Wireworld {
             System.out.print("\n");
             petla_test++;
         }
+        wypisz(plansza);
 
     }
 
