@@ -7,40 +7,30 @@ public class Wireworld {
     static int wys = 5;
     static int szer = 14; 
     
-    public static void dioda_oblicz (Integer [][] obiekt, int i, int j) {
-        int licznik=0;
-        while (licznik<14) {
-            if (obiekt[i-1][j+licznik]==2)
-                obiekt[i-1][j+licznik]=3;
-            if (obiekt[i][j+licznik]==2)
-                obiekt[i][j+licznik]=3;
-            if (obiekt[i+1][j+licznik]==2)
-                obiekt[i+1][j+licznik]=3;
-            licznik++;
-        }
-        licznik=0;
-        while (licznik<14) {
-            if(obiekt[i-1][j+licznik]==1 || obiekt[i][j+licznik]==1 || obiekt[i+1][j+licznik]==1) {
-                if(obiekt[i-1][j+licznik] != 0)
-                    obiekt[i-1][j+licznik] =2;
-                if(obiekt[i][j+licznik] != 0)
-                    obiekt[i][j+licznik] =2;
-                if(obiekt[i+1][j+licznik] != 0)
-                    obiekt[i+1][j+licznik] =2;
-                if(licznik<13)
-                    licznik++;
-                
-                if(obiekt[i-1][j+licznik] != 0)
-                    obiekt[i-1][j+licznik] =1;
-                if(obiekt[i][j+licznik] != 0)
-                    obiekt[i][j+licznik] =1;
-                if(obiekt[i+1][j+licznik] != 0)
-                    obiekt[i+1][j+licznik] =1;
-                break;
+    public static void zeruj_ogon (Integer [][] obiekt, int i, int j) {
+        int liczniki=0;
+        int licznikj=0;
+        while (liczniki<i) {
+            while (licznikj<j) {
+                if (obiekt[liczniki][licznikj]==2)
+                    obiekt[liczniki][licznikj]=3;
             }
-            else
-                licznik++;
+            liczniki++;
+            licznikj=0;
         }
+        
+    }
+    
+    public static void ile_sasiadow (Integer [][] obiekt, int i, int j) {
+        
+    }
+    
+    public static void glowa_na_ogon (Integer [][] obiekt, int i, int j) {
+        
+    }
+    
+    public static void dodaj_glowa (Integer [][] obiekt, int i, int j) {
+        
     }
     
     public static void wypisz (Integer[][] obiekt) {
@@ -112,8 +102,12 @@ public class Wireworld {
         
         int petla_test=0;
         while (petla_test<14) {
-            dioda_oblicz(plansza, 2, 0);
-            wypisz(plansza);
+            
+            zeruj_ogon(plansza, wys, szer);
+            //ile_sasiadow(plansza, wys, szer);
+            //glowa_na_ogon(plansza, wys, szer);
+            //dodaj_glowa(plansza, wys, szer);
+            
             System.out.print("\n");
             petla_test++;
         }
