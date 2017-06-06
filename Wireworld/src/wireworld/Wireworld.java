@@ -22,8 +22,21 @@ public class Wireworld {
         
     }
     
-    public static void ile_sasiadow (Integer [][] obiekt, int i, int j) {
-        
+    public static void ile_sasiadow (Integer [][] obiekt, Integer[][] sasiedztwo, int i, int j) {
+        int liczniki=0;
+        int licznikj=0;
+        while (liczniki<i) {
+            while (licznikj<j) {
+                if (obiekt[liczniki][licznikj]==2)
+                    sasiedztwo[liczniki][licznikj]=0;
+                else if (obiekt[liczniki][licznikj]==3) {
+                    //Tutaj liczenie sasiadów
+                }
+                licznikj++;
+            }
+            liczniki++;
+            licznikj=0;
+        }
     }
     
     public static void glowa_na_ogon (Integer [][] obiekt, int i, int j) {
@@ -129,7 +142,7 @@ public class Wireworld {
             
             zeruj_ogon(plansza, wys, szer);
             //System.out.println ("Przeszłem ogon");
-            //ile_sasiadow(plansza, wys, szer);
+            ile_sasiadow(plansza, sasiedzi, wys, szer);
             glowa_na_ogon(plansza, wys, szer);
             dodaj_glowa(plansza, sasiedzi, wys, szer);
             
