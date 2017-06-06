@@ -30,9 +30,6 @@ public class Wireworld {
         int licznikj=0;
         while (liczniki<i) {
             while (licznikj<j) {
-                //if (obiekt[liczniki][licznikj]==2)
-                //    sasiedztwo[liczniki][licznikj]=0;
-                //else 
                     if (obiekt[liczniki][licznikj]==3) {
                     //Tutaj liczenie sasiadów
                     int temp_i=liczniki-1;
@@ -103,6 +100,8 @@ public class Wireworld {
         }
     }
     
+    //Wstawianie obiektow
+    
     public static void wstaw_diode (Integer [][] obiekt, int i, int j) {
         int licznik=0;
         while (licznik<6) {
@@ -120,10 +119,6 @@ public class Wireworld {
             obiekt[i][j+licznik]=3;
             licznik++;
         }
-    }
-    
-    public static void glowka (Integer [][] obiekt, int i, int j) {
-        obiekt[i][j] = 1;
     }
     
     public static void wstaw_diode_odwrotnie (Integer [][] obiekt, int i, int j) {
@@ -144,6 +139,22 @@ public class Wireworld {
             licznik++;
         }
     }
+    
+    
+    //Wstawianie stanu
+    public static void wstaw_kabel (Integer [][] obiekt, int i, int j) {
+        obiekt[i][j] = 3;
+    }
+    
+    public static void wstaw_glowka (Integer [][] obiekt, int i, int j) {
+        obiekt[i][j] = 1;
+    }
+    
+    public static void wstaw_ogon (Integer [][] obiekt, int i, int j) {
+        obiekt[i][j] = 2;
+    }
+    
+    
 
     public static void main(String[] args) {
         
@@ -160,7 +171,7 @@ public class Wireworld {
         wypisz(plansza);
         System.out.print("\n");
         
-        glowka(plansza, 2, 0);
+        wstaw_glowka(plansza, 2, 0);
         
         int petla_test=0;
         while (petla_test<ilosc_obiegow) {
