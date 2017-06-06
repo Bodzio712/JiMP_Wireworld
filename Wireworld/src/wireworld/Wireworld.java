@@ -27,11 +27,31 @@ public class Wireworld {
     }
     
     public static void glowa_na_ogon (Integer [][] obiekt, int i, int j) {
-        
+        int liczniki=0;
+        int licznikj=0;
+        while (liczniki<i) {
+            while (licznikj<j) {
+                if (obiekt[liczniki][licznikj]==1)
+                    obiekt[liczniki][licznikj]=2;
+                licznikj++;
+            }
+            liczniki++;
+            licznikj=0;
+        }
     }
     
-    public static void dodaj_glowa (Integer [][] obiekt, int i, int j) {
-        
+    public static void dodaj_glowa (Integer [][] obiekt, Integer [][] sasiedztwo, int i, int j) {
+        int liczniki=0;
+        int licznikj=0;
+        while (liczniki<i) {
+            while (licznikj<j) {
+                if (sasiedztwo[liczniki][licznikj]==1 || sasiedztwo[liczniki][licznikj]==2)
+                    obiekt[liczniki][licznikj]=1;
+                licznikj++;
+            }
+            liczniki++;
+            licznikj=0;
+        }
     }
     
     public static void wypisz (Integer[][] obiekt) {
@@ -94,6 +114,7 @@ public class Wireworld {
     public static void main(String[] args) {
         
         Integer [][] plansza = new Integer[wys][szer];
+        Integer [][] sasiedzi = new Integer[wys][szer];
      
         wyzeruj(plansza);
         wstaw_diode(plansza, 2, 0);
@@ -102,13 +123,13 @@ public class Wireworld {
         glowka(plansza, 2, 0);
         
         int petla_test=0;
-        while (petla_test<14) {
+        while (petla_test<1) {
             
             zeruj_ogon(plansza, wys, szer);
             System.out.println ("Przeszłem ogon");
             //ile_sasiadow(plansza, wys, szer);
-            //glowa_na_ogon(plansza, wys, szer);
-            //dodaj_glowa(plansza, wys, szer);
+            glowa_na_ogon(plansza, wys, szer);
+            //dodaj_glowa(plansza, sasiedzi, wys, szer);
             
             System.out.print("\n");
             petla_test++;
