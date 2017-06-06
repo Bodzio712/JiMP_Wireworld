@@ -7,6 +7,9 @@ public class Wireworld {
     static int wys = 5;
     static int szer = 14; 
     
+    //Od tej zmiennej zalezy ilość obiegów
+    static int ilosc_obiegow =9;
+    
     public static void zeruj_ogon (Integer [][] obiekt, int i, int j) {
         int liczniki=0;
         int licznikj=0;
@@ -27,10 +30,28 @@ public class Wireworld {
         int licznikj=0;
         while (liczniki<i) {
             while (licznikj<j) {
-                if (obiekt[liczniki][licznikj]==2)
-                    sasiedztwo[liczniki][licznikj]=0;
-                else if (obiekt[liczniki][licznikj]==3) {
+                //if (obiekt[liczniki][licznikj]==2)
+                //    sasiedztwo[liczniki][licznikj]=0;
+                //else 
+                    if (obiekt[liczniki][licznikj]==3) {
                     //Tutaj liczenie sasiadów
+                    int temp_i=liczniki-1;
+                    int temp_j=licznikj-1;
+                    int suma=0;
+                    while(temp_i<=liczniki+1) {
+                        while(temp_j<=licznikj+1) {
+                            if (temp_i >=0 && temp_i<i) {
+                                if (temp_j >=0 && temp_j<j) {
+                                    if (obiekt[temp_i][temp_j]==1)
+                                        suma++;
+                                }
+                            }
+                            temp_j++;
+                        }
+                        temp_j=licznikj-1;
+                        temp_i++;
+                    }
+                    sasiedztwo[liczniki][licznikj] = suma;
                 }
                 licznikj++;
             }
@@ -132,25 +153,29 @@ public class Wireworld {
         wyzeruj(plansza);
         wyzeruj(sasiedzi);
         
+        //W tym miejscu wstawiamy na plansze obiekty
         wstaw_diode(plansza, 2, 0);
+        
+        System.out.println("Plansza wejsciowa");
         wypisz(plansza);
+        System.out.print("\n");
         
         glowka(plansza, 2, 0);
         
         int petla_test=0;
-        while (petla_test<1) {
+        while (petla_test<ilosc_obiegow) {
             
-            zeruj_ogon(plansza, wys, szer);
-            //System.out.println ("Przeszłem ogon");
             ile_sasiadow(plansza, sasiedzi, wys, szer);
+            zeruj_ogon(plansza, wys, szer);
             glowa_na_ogon(plansza, wys, szer);
             dodaj_glowa(plansza, sasiedzi, wys, szer);
+            wyzeruj(sasiedzi);
             
-            System.out.print("\n");
             petla_test++;
         }
+        
+        System.out.println("Plansza wyjsciowa");
         wypisz(plansza);
-
     }
 
 }
