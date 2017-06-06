@@ -117,6 +117,8 @@ public class Wireworld {
         Integer [][] sasiedzi = new Integer[wys][szer];
      
         wyzeruj(plansza);
+        wyzeruj(sasiedzi);
+        
         wstaw_diode(plansza, 2, 0);
         wypisz(plansza);
         
@@ -126,10 +128,10 @@ public class Wireworld {
         while (petla_test<1) {
             
             zeruj_ogon(plansza, wys, szer);
-            System.out.println ("Przeszłem ogon");
+            //System.out.println ("Przeszłem ogon");
             //ile_sasiadow(plansza, wys, szer);
             glowa_na_ogon(plansza, wys, szer);
-            //dodaj_glowa(plansza, sasiedzi, wys, szer);
+            dodaj_glowa(plansza, sasiedzi, wys, szer);
             
             System.out.print("\n");
             petla_test++;
