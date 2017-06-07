@@ -1,6 +1,6 @@
 package wireworld;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 import java.awt.*;
 import java.util.*;
 
@@ -168,7 +168,7 @@ public class Wireworld {
      
         wyzeruj(plansza);
         wyzeruj(sasiedzi);
-        
+
         //W tym miejscu wstawiamy na plansze obiekty
         wstaw_diode(plansza, 2, 0);
         
@@ -177,7 +177,7 @@ public class Wireworld {
         System.out.print("\n");
         
         wstaw_glowka(plansza, 2, 0);
-        
+        new MyFrame();
         int petla_test=0;
         while (petla_test<ilosc_obiegow) {
             
@@ -186,9 +186,9 @@ public class Wireworld {
             glowa_na_ogon(plansza, wys, szer);
             dodaj_glowa(plansza, sasiedzi, wys, szer);
             wyzeruj(sasiedzi);
-            new MyFrame();
+
             try {
-            Thread.sleep(100);
+            Thread.sleep(1000);
         } catch (InterruptedException e)
         {
             System.out.println("Scanning...");

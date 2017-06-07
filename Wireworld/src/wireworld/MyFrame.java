@@ -18,7 +18,7 @@ public class MyFrame extends JFrame {
         setVisible(true);
     }
 
-    public class MyPanel extends JPanel {
+    class MyPanel extends JPanel {
 
         public MyPanel() {
             setPreferredSize(new Dimension(700, 700));
@@ -45,6 +45,7 @@ public class MyFrame extends JFrame {
                     g.setColor(Color.white);
                 }
                 g2d.fillRect((j + 1) * piks, (i+1)*piks, piks, piks);
+               repaint();
             }}
         }
     }
