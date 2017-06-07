@@ -182,6 +182,15 @@ public class Wireworld {
         obiekt[i][j] = 2;
     }
     
+    public static void wstaw_obiekty () {
+                //W tym miejscu wstawiamy na plansze obiekty
+        wstaw_diode(plansza, 2, 0);
+        wstaw_diode_odwrotnie (plansza, 7, 0);
+        
+        wstaw_glowka(plansza, 2, 0);
+        wstaw_glowka(plansza, 7, 0);
+    }
+    
     
 
     public static void main(String[] args) {
@@ -192,12 +201,7 @@ public class Wireworld {
         wyzeruj(plansza);
         wyzeruj(sasiedzi);
 
-        //W tym miejscu wstawiamy na plansze obiekty
-        wstaw_diode(plansza, 2, 0);
-        wstaw_diode_odwrotnie (plansza, 7, 0);
-        
-        wstaw_glowka(plansza, 2, 0);
-        wstaw_glowka(plansza, 7, 0);
+        wstaw_obiekty();
         
         System.out.println("Plansza wejsciowa");
         wypisz(plansza);
@@ -213,8 +217,14 @@ public class Wireworld {
         new MyFrame();
          
         int petla_test=0;
+        int ilosc_wyk_obiegow=0;
+        
         while (petla_test<ilosc_obiegow) {
-            
+            if(ilosc_wyk_obiegow>=szer) {
+                wstaw_obiekty();
+                ilosc_wyk_obiegow-=szer;
+            }
+
             ile_sasiadow(plansza, sasiedzi, wys, szer);
             zeruj_ogon(plansza, wys, szer);
             glowa_na_ogon(plansza, wys, szer);
@@ -228,6 +238,7 @@ public class Wireworld {
             System.out.println("Scanning...");
         }
             petla_test++;
+            ilosc_wyk_obiegow++;
         }
        
         System.out.println("Plansza wyjsciowa");
