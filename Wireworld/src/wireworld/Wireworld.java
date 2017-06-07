@@ -6,12 +6,12 @@ import java.util.*;
 
 public class Wireworld {
 
-    static int wys = 5;
+    static int wys = 10;
     static int szer = 14;
     static Integer [][] plansza = new Integer[wys][szer];
     
     //Od tej zmiennej zalezy ilość obiegów
-    static int ilosc_obiegow =9;
+    static int ilosc_obiegow =14;
 
 
 
@@ -171,13 +171,17 @@ public class Wireworld {
 
         //W tym miejscu wstawiamy na plansze obiekty
         wstaw_diode(plansza, 2, 0);
+        wstaw_diode_odwrotnie (plansza, 7, 0);
+        
+        wstaw_glowka(plansza, 2, 0);
+        wstaw_glowka(plansza, 7, 0);
         
         System.out.println("Plansza wejsciowa");
         wypisz(plansza);
         System.out.print("\n");
         
-        wstaw_glowka(plansza, 2, 0);
         new MyFrame();
+        
         int petla_test=0;
         while (petla_test<ilosc_obiegow) {
             
