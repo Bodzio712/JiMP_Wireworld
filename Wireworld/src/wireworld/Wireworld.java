@@ -11,7 +11,7 @@ public class Wireworld {
     static Integer [][] plansza = new Integer[wys][szer];
     
     //Od tej zmiennej zalezy ilość obiegów
-    static int ilosc_obiegow =14;
+    int ilosc_obiegow =14;
 
 
 
@@ -203,8 +203,15 @@ public class Wireworld {
         wypisz(plansza);
         System.out.print("\n");
         
-        new MyFrame();
+
         
+        System.out.println("Prosze podac ilosc krokow jaka ma wykonac program");
+        
+        Scanner scan = new Scanner(System.in);
+        int ilosc_obiegow = scan.nextInt();
+        
+        new MyFrame();
+         
         int petla_test=0;
         while (petla_test<ilosc_obiegow) {
             
