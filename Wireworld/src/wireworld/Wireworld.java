@@ -145,6 +145,29 @@ public class Wireworld {
         }
     }
     
+    public static void wstaw_bramke_or (Integer [][] obiekt, int i, int j) {
+        int licznik=0;
+        while(licznik<5) {
+            obiekt[i][j+licznik]=3;
+            obiekt[i+2][j+licznik]=3;
+            licznik++;
+        }
+        while(licznik<7) {
+            obiekt[i-1][j+licznik]=3;
+            obiekt[i+3][j+licznik]=3;
+            licznik++;
+        }
+        obiekt[i-1][j-1+licznik]=3;
+        obiekt[i][j+licznik]=3;
+        obiekt[i-1][j+licznik]=3;
+        obiekt[i-2][j+licznik]=3;
+        licznik++;
+        while(licznik<14) {
+            obiekt[i-1][j+licznik]=3;
+            licznik++;
+        }
+    }
+    
     
     //Wstawianie stanu
     public static void wstaw_kabel (Integer [][] obiekt, int i, int j) {
