@@ -1,15 +1,20 @@
 package wireworld;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 
 public class Wireworld {
 
     static int wys = 5;
-    static int szer = 14; 
+    static int szer = 14;
+    static Integer [][] plansza = new Integer[wys][szer];
     
     //Od tej zmiennej zalezy ilość obiegów
     static int ilosc_obiegow =9;
-    
+
+
+
     public static void zeruj_ogon (Integer [][] obiekt, int i, int j) {
         int liczniki=0;
         int licznikj=0;
@@ -158,7 +163,7 @@ public class Wireworld {
 
     public static void main(String[] args) {
         
-        Integer [][] plansza = new Integer[wys][szer];
+
         Integer [][] sasiedzi = new Integer[wys][szer];
      
         wyzeruj(plansza);
@@ -181,12 +186,12 @@ public class Wireworld {
             glowa_na_ogon(plansza, wys, szer);
             dodaj_glowa(plansza, sasiedzi, wys, szer);
             wyzeruj(sasiedzi);
-            
+            new MyFrame();
+            //Thread.sleep(2000);
             petla_test++;
         }
-        new MyFrame(plansza);
+       
         System.out.println("Plansza wyjsciowa");
         wypisz(plansza);
     }
-
 }
