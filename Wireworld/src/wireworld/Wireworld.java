@@ -187,7 +187,12 @@ public class Wireworld {
             dodaj_glowa(plansza, sasiedzi, wys, szer);
             wyzeruj(sasiedzi);
             new MyFrame();
-            //Thread.sleep(2000);
+            try {
+            Thread.sleep(100);
+        } catch (InterruptedException e)
+        {
+            System.out.println("Scanning...");
+        }
             petla_test++;
         }
        
