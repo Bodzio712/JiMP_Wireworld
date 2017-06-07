@@ -184,7 +184,7 @@ public class Wireworld {
             
             petla_test++;
         }
-        
+        new MyFrame(plansza);
         System.out.println("Plansza wyjsciowa");
         wypisz(plansza);
     }
